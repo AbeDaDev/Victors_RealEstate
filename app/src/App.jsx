@@ -1,5 +1,6 @@
 import './index.css'
 import Header from './components/Header'
+import Testimonials from './components/Testimonials'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 
@@ -11,7 +12,7 @@ function App(){
           <div className="app-root">
             <main className="main-content">
                 <Header />
-                
+                <Testimonials />
             </main>
             <Contact />
             <Footer />

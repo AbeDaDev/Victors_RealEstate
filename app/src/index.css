@@ -178,6 +178,55 @@ a:hover {
   display: block;
 }
 
+/* Testimonials */
+
+.testimonials h2 {
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.testimonials-viewport {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 380px;
+  box-sizing: border-box;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 90px;                /* increased spacing between images */
+  align-items: center;
+  animation: scroll-full 42s linear infinite; /* slowed animation */
+  will-change: transform;
+}
+
+/* ~20% bigger than previous 96px -> ~116px */
+.testimonial {
+  width: 316px;
+  height: auto;
+  flex: 0 0 auto;
+  display: block;
+  opacity: 1;
+}
+
+/* continuous travel from right edge to left; tweak duration for speed */
+@keyframes scroll-full {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+/* responsive tweaks: scale up by ~20% from previous 72px -> ~86px */
+@media (max-width: 768px) {
+  .testimonials-viewport { height: 110px; }
+  .testimonial { width: 86px; }
+  .testimonials-track { animation-duration: 16s; gap: 18px; }
+}
+
 /* Contact Card */ 
 
 .portrait {
