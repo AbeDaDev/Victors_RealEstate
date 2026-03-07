@@ -6,7 +6,7 @@ function Header(){
         <header>
 
             <navbar className="navbar">
-                <div className="logo-container"><img src="public/logo.jpg" alt="logo" className="logo"/></div>
+                <div className="logo-container"><img src="/logo.jpg" alt="logo" className="logo"/></div>
             
             
             <div className="links-container">

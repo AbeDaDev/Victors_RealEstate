@@ -16,3 +16,4 @@ https://calendly.com/victorsernadelgado/company-overview
 
 http://linkedin.com/in/victor-serna-delgado-3a7073371
 
+vsdestates.netlify.app
