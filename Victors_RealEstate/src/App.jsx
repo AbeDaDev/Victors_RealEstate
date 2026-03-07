@@ -1,9 +1,22 @@
-import Header from './components/Header.jsx'
+import './index.css'
+import Header from './components/Header'
+import Contact from './pages/Contact'
+import Footer from './components/Footer'
+
 
 function App(){
 
     return(
-      <Header />
+        <>
+          <div className="app-root">
+            <main className="main-content">
+                <Header />
+                
+            </main>
+            <Contact />
+            <Footer />
+          </div>
+        </>
     );
 }
 

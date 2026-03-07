@@ -1,10 +1,25 @@
 
+
 function Header(){
 
     return(
         <header>
-            <h1>My Website</h1>
-        </header>
+
+            <navbar className="navbar">
+                <div className="logo-container"><img src="public/logo.jpg" alt="logo" className="logo"/></div>
+            
+            
+            <div className="links-container">
+                <ul className="links">
+                    <li alt="Home"><a href="">Home</a></li>
+                    <li alt="Reviews"><a href="">Reviews</a></li>
+                    <li alt="Contact"><a href="">Contact</a></li>
+                    <li alt="Book Appointment"><a href="">Appointments</a></li>
+                </ul>
+            </div>
+            </navbar>
+
+        </header>     
     );
 }
 
