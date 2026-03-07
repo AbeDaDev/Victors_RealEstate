@@ -12,7 +12,7 @@ function Header(){
             <div className="links-container">
                 <ul className="links">
                     <li alt="Home"><a href="">Home</a></li>
-                    <li alt="Reviews"><a href="">Reviews</a></li>
+                    <li alt="Reviews"><a href="">Testimonials</a></li>
                     <li alt="Contact"><a href="">Contact</a></li>
                     <li alt="Book Appointment"><a href="">Appointments</a></li>
                 </ul>
