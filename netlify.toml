@@ -1,5 +1,4 @@
 [build]
-  base = "Victors_RealEstate" 
   command = "npm ci && npm run build"
   publish = "dist"
 
