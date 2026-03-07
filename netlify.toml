@@ -1,5 +1,5 @@
 [build]
-  base = "Victors_RealEstate"
+  base = "victors-realestate"
   command = "npm run build"
   publish = "dist"
 
