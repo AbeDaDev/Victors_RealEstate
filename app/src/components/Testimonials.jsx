@@ -1,7 +1,7 @@
 function Testimonials() {
   return (
     <section className="testimonials">
-      <h2>Testimonials</h2>
+      <div className="section-divider" aria-hidden="true" />
 
       <div className="testimonials-viewport" aria-hidden="false">
         <div className="testimonials-track">
