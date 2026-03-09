@@ -1,6 +1,6 @@
 function LeadForm() {
   return (
-    <section className="lead-form-wrapper" aria-labelledby="contact-form-heading">
+    <section className="lead-form-wrapper" id="contact" aria-labelledby="contact-form-heading">
       <div className="section-divider" aria-hidden="true" />
 
       <div className="lead-form-section">
