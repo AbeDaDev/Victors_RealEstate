@@ -318,7 +318,7 @@ footer.site-footer h4 + p {
   }
 
   .testimonials-viewport {
-    min-height: 420px;
+    min-height: 620px;
   }
 
   .testimonials-track {
@@ -328,7 +328,7 @@ footer.site-footer h4 + p {
   }
 
   .testimonial {
-    width: min(420px, 88vw);
+    width: min(630px, 92vw);
   }
 
   .contact-section {
