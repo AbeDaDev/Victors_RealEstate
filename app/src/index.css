@@ -263,7 +263,7 @@ footer.site-footer h4 + p {
   margin-top: 6px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   h1 {
     font-size: 1.8rem;
   }
