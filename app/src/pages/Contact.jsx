@@ -19,6 +19,7 @@ function Contact(){
                 className="map-iframe"
             ></iframe>
             </div>
+            <div className="section-divider map-divider" aria-hidden="true" />
         </section>
         
     )

@@ -22,7 +22,7 @@ body,
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(180deg, #000000 0%, #c8c8c8 100%);
+  background: linear-gradient(180deg, #000000 0%, #c8c8c8 48%, #000000 100%);
   background-attachment: fixed;
   color: #ffffff;
   line-height: 1.5;
@@ -80,7 +80,7 @@ a {
 }
 
 a:hover {
-  color: #d5c1a1;
+  color: #c84b4b;
 }
 
 .site-header {
@@ -150,13 +150,14 @@ a:hover {
   height: 28px;
   object-fit: contain;
   display: block;
+  filter: brightness(0) saturate(100%) invert(35%) sepia(40%) saturate(1452%)
+    hue-rotate(324deg) brightness(97%) contrast(89%);
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 .social_links a:hover img,
 .social_links a:focus-visible img {
-  filter: brightness(0) saturate(100%) invert(82%) sepia(19%) saturate(533%)
-    hue-rotate(349deg) brightness(97%) contrast(89%);
+  filter: brightness(0) saturate(100%) invert(100%);
   transform: translateY(-1px);
 }
 
@@ -169,8 +170,12 @@ a:hover {
   height: 6px;
   margin: 0 auto 20px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #e8d8bc 0%, #b8935f 100%);
-  box-shadow: 0 10px 24px rgba(184, 147, 95, 0.28);
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  box-shadow: 0 10px 24px rgba(200, 75, 75, 0.28);
+}
+
+.map-divider {
+  margin: 24px auto;
 }
 
 .testimonials-viewport {
@@ -270,7 +275,7 @@ a:hover {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #d5c1a1;
+  color: #c84b4b;
 }
 
 .lead-form-card h2 {
@@ -318,7 +323,7 @@ a:hover {
 
 .lead-form-field input:focus,
 .lead-form-field textarea:focus {
-  outline: 2px solid rgba(213, 193, 161, 0.9);
+  outline: 2px solid rgba(200, 75, 75, 0.9);
   outline-offset: 2px;
   border-color: transparent;
 }
@@ -333,15 +338,15 @@ a:hover {
   padding: 14px 22px;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, #e8d8bc 0%, #b8935f 100%);
-  color: #111111;
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  color: #ffffff;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
 }
 
 .lead-form-submit:hover {
-  background: linear-gradient(135deg, #f2e3c6 0%, #c59b60 100%);
+  background: linear-gradient(135deg, #de5a5a 0%, #1a1a1a 100%);
 }
 
 .map {
@@ -369,7 +374,7 @@ footer {
   width: 100%;
   padding: 24px 0;
   margin: 0;
-  color: #111;
+  color: #c84b4b;
 }
 
 .site-footer,
