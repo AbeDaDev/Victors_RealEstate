@@ -318,7 +318,7 @@ footer.site-footer h4 + p {
   }
 
   .testimonials-viewport {
-    min-height: 240px;
+    min-height: 320px;
   }
 
   .testimonials-track {
@@ -328,7 +328,7 @@ footer.site-footer h4 + p {
   }
 
   .testimonial {
-    width: min(240px, 78vw);
+    width: min(300px, 88vw);
   }
 
   .contact-section {
@@ -367,7 +367,7 @@ footer.site-footer h4 + p {
 
   .testimonials-viewport {
     margin-top: 12px;
-    min-height: 200px;
+    min-height: 300px;
   }
 
   .testimonials-track {
@@ -375,7 +375,7 @@ footer.site-footer h4 + p {
   }
 
   .testimonial {
-    width: min(220px, 82vw);
+    width: min(280px, 90vw);
   }
 
   .map iframe,
