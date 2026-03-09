@@ -150,14 +150,14 @@ a:hover {
   height: 28px;
   object-fit: contain;
   display: block;
-  filter: brightness(0) saturate(100%) invert(35%) sepia(40%) saturate(1452%)
-    hue-rotate(324deg) brightness(97%) contrast(89%);
+  filter: brightness(0) saturate(100%) invert(100%);
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 .social_links a:hover img,
 .social_links a:focus-visible img {
-  filter: brightness(0) saturate(100%) invert(100%);
+  filter: brightness(0) saturate(100%) invert(35%) sepia(40%) saturate(1452%)
+    hue-rotate(324deg) brightness(97%) contrast(89%);
   transform: translateY(-1px);
 }
 
@@ -374,7 +374,7 @@ footer {
   width: 100%;
   padding: 24px 0;
   margin: 0;
-  color: #c84b4b;
+  color: #ffffff;
 }
 
 .site-footer,
@@ -475,7 +475,7 @@ footer.site-footer h4 + p {
 
   .testimonials-track {
     gap: 20px;
-    animation-duration: 20s;
+    animation-duration: 16s;
     padding-inline: 12px;
   }
 
@@ -537,7 +537,7 @@ footer.site-footer h4 + p {
 
   .testimonials-track {
     gap: 16px;
-    animation-duration: 18s;
+    animation-duration: 14s;
   }
 
   .testimonial {
