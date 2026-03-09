@@ -475,7 +475,7 @@ footer.site-footer h4 + p {
 
   .testimonials-track {
     gap: 20px;
-    animation-duration: 16s;
+    animation-duration: 12s;
     padding-inline: 12px;
   }
 
@@ -537,7 +537,7 @@ footer.site-footer h4 + p {
 
   .testimonials-track {
     gap: 16px;
-    animation-duration: 14s;
+    animation-duration: 10s;
   }
 
   .testimonial {
