@@ -3,9 +3,8 @@
 function Header(){
 
     return(
-        <header>
-
-            <navbar className="navbar">
+        <header className="site-header">
+            <nav className="navbar" aria-label="Primary">
                 <div className="logo-container"><img src="/logo.jpg" alt="logo" className="logo"/></div>
             
             
@@ -17,8 +16,7 @@ function Header(){
                     <li alt="Book Appointment"><a href="">Appointments</a></li>
                 </ul>
             </div>
-            </navbar>
-
+            </nav>
         </header>     
     );
 }
