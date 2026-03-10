@@ -8,9 +8,6 @@ function Contact(){
             <LeadForm />
             <div className="contact-actions">
                 <a className="lead-form-submit" href="tel:+19095324251">Call (909) 532-4251</a>
-                <a className="lead-form-submit secondary" href="mailto:thesdelgadogroup@gmail.com?subject=Inquiry">
-                    Email thesdelgadogroup@gmail.com
-                </a>
             </div>
             <div className="map" id="location">
                 <iframe

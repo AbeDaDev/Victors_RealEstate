@@ -15,7 +15,7 @@ function LeadForm() {
       <div className="lead-form-section">
         <div className="lead-form-image-wrap">
           <img
-            src="/businesscard.jpeg"
+            src="/portrait.jpeg"
             alt="Victor's Real Estate contact card"
             className="lead-form-image"
           />
