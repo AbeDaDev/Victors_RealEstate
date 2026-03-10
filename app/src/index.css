@@ -94,10 +94,18 @@ h1 {
 
 h2 {
   font-size: 1.8rem;
+  margin-bottom: 30px;
 }
 
 p {
   font-size: 1rem;
+}
+
+.spanish-callout {
+  text-align: center;
+  margin: 16px auto 30px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.06em;
 }
 
 .questions-section {
@@ -424,6 +432,115 @@ body.light-mode .back-to-top:focus-visible {
   color: #000000;
 }
 
+.sold-hero {
+  position: relative;
+  width: 100%;
+  margin: 32px auto 48px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+  padding-bottom: 76px; /* space for controls */
+}
+
+.sold-slide {
+  width: 100%;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sold-overlay {
+  width: 100%;
+  padding: 36px 32px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.75) 100%);
+  color: #ffffff;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.sold-overlay h2 {
+  margin: 0 0 6px;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.sold-overlay p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.sold-controls {
+  position: absolute;
+  inset: auto 0 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.sold-arrow {
+  pointer-events: auto;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.sold-arrow:hover,
+.sold-arrow:focus-visible {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  border-color: transparent;
+}
+
+.sold-dots {
+  pointer-events: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.sold-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.sold-dot.is-active {
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  border-color: transparent;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .sold-slide {
+    min-height: 50vh;
+  }
+
+  .sold-controls {
+    gap: 10px;
+  }
+
+  .sold-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
 .social_links {
   width: 100%;
   display: flex;
@@ -478,6 +595,8 @@ body.light-mode .back-to-top:focus-visible {
 
 .map-divider {
   margin: 24px auto;
+  position: relative;
+  transform: translateY(30px);
 }
 
 .testimonials-viewport {
@@ -496,7 +615,7 @@ body.light-mode .back-to-top:focus-visible {
 
 .testimonials-track {
   display: flex;
-  gap: 40px;
+  gap: min(320px, 72vw);
   align-items: flex-start;
   animation: scroll-full 36s linear infinite;
   will-change: transform;
@@ -656,7 +775,7 @@ body.light-mode .back-to-top:focus-visible {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
+  margin: 50px auto 50px;
   padding: 12px 0;
 }
 
