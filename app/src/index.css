@@ -600,17 +600,18 @@ body.light-mode .back-to-top:focus-visible {
 }
 
 .contact-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+  gap: 20px;
   justify-content: center;
+  align-items: stretch;
   margin: 54px auto 24px;
 }
 
 .contact-actions a {
   text-align: center;
-  min-width: 220px;
   color: #ffffff;
+  width: 100%;
 }
 
 body.light-mode .contact-actions a {
