@@ -599,6 +599,24 @@ body.light-mode .back-to-top:focus-visible {
   transform: translateY(30px);
 }
 
+.contact-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 54px auto 24px;
+}
+
+.contact-actions a {
+  text-align: center;
+  min-width: 220px;
+  color: #ffffff;
+}
+
+body.light-mode .contact-actions a {
+  color: #ffffff;
+}
+
 .testimonials-viewport {
   margin-top: 20px;
   margin-bottom: 50px;
@@ -768,6 +786,17 @@ body.light-mode .back-to-top:focus-visible {
 
 .lead-form-submit:hover {
   background: linear-gradient(135deg, #de5a5a 0%, #1a1a1a 100%);
+}
+
+.lead-form-submit.secondary {
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  border: 0;
+  color: #ffffff;
+}
+
+.lead-form-submit:visited,
+.lead-form-submit.secondary:visited {
+  color: #ffffff;
 }
 
 .map {
