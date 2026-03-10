@@ -614,6 +614,17 @@ body.light-mode .back-to-top:focus-visible {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .contact-actions {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .contact-actions a {
+    width: 100%;
+  }
+}
+
 body.light-mode .contact-actions a {
   color: #ffffff;
 }
