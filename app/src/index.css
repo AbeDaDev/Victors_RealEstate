@@ -33,6 +33,29 @@ body {
   font-family: var(--font-main);
 }
 
+body.light-mode {
+  background: linear-gradient(180deg, #fefefe 0%, #e8e8e8 48%, #fefefe 100%);
+  color: #111111;
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode p {
+  color: #111111;
+}
+
+body.light-mode a {
+  color: #111111;
+}
+
+body.light-mode a:hover {
+  color: #c84b4b;
+}
+
 #root {
   width: 100%;
 }
@@ -75,6 +98,169 @@ h2 {
 
 p {
   font-size: 1rem;
+}
+
+.questions-section {
+  width: 100%;
+  margin: 60px auto;
+  padding: 40px 28px;
+  border-radius: 22px;
+  background: rgba(12, 12, 12, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.questions-header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+
+.questions-header .eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c84b4b;
+  font-weight: 800;
+  margin: 0;
+}
+
+.questions-header .subhead {
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+.questions-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  position: relative;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tab-button.is-active {
+  border-color: transparent;
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  box-shadow: 0 14px 30px rgba(200, 75, 75, 0.35);
+}
+
+.tab-button:focus-visible,
+.tab-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.accordion-list {
+  display: grid;
+  gap: 12px;
+}
+
+.accordion-item {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0 16px;
+  color: #ffffff;
+}
+
+.accordion-item[open] {
+  border-color: rgba(200, 75, 75, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.accordion-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 0;
+  font-weight: 700;
+}
+
+.accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion-item p {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.accordion-caret {
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+
+.accordion-item[open] .accordion-caret {
+  transform: rotate(-180deg);
+}
+
+body.light-mode .questions-section,
+body.light-mode .lead-form-card,
+body.light-mode .accordion-item,
+body.light-mode .tab-button {
+  background: #fdfdfd;
+  color: #111111;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .questions-header .subhead {
+  color: rgba(0, 0, 0, 0.72);
+}
+
+body.light-mode .tab-button.is-active {
+  background: linear-gradient(135deg, #111111 0%, #c84b4b 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+body.light-mode .accordion-item p {
+  color: rgba(0, 0, 0, 0.78);
+}
+
+body.light-mode .lead-form-field input,
+body.light-mode .lead-form-field textarea {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #111111;
+}
+
+body.light-mode footer,
+body.light-mode .site-footer {
+  color: #111111;
+}
+
+body.light-mode .section-divider {
+  background: linear-gradient(135deg, #111111 0%, #c84b4b 100%);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+body.light-mode .links a {
+  color: #111111;
+}
+
+body.light-mode .links a:hover {
+  color: #c84b4b;
+}
+
+body.light-mode .social_links img {
+  filter: brightness(0);
 }
 
 a {
@@ -125,6 +311,117 @@ a:hover {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slider {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px 0 8px;
+  box-sizing: border-box;
+}
+
+.slider::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  left: 4px;
+  top: 2px;
+  transition: transform 0.2s ease;
+}
+
+.switch input:checked + .slider {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(36px);
+}
+
+.switch-label {
+  position: absolute;
+  right: 10px;
+  left: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  pointer-events: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.switch input:checked + .slider .switch-label {
+  color: #0a0a0a;
+  right: auto;
+  left: 10px;
+  transform: none;
+}
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #c84b4b 0%, #000000 100%);
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(200, 75, 75, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(200, 75, 75, 0.45);
+  filter: brightness(1.08);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+body.light-mode .back-to-top {
+  color: #ffffff;
+}
+
+body.light-mode .back-to-top:hover,
+body.light-mode .back-to-top:focus-visible {
+  color: #000000;
 }
 
 .social_links {
@@ -455,6 +752,7 @@ footer.site-footer h4 + p {
   .links {
     justify-content: center;
     gap: 10px 16px;
+    flex-direction: row;
   }
 
   .links a {

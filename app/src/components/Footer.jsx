@@ -3,6 +3,10 @@ function Footer(){
     return(
         <footer className="site-footer container">
 
+            <a className="back-to-top" href="#top" aria-label="Back to top">
+                ↑
+            </a>
+
             <div className="social_links">
                 <ul>
                     <li><a href="http://linkedin.com/in/victor-serna-delgado-3a7073371" target="_blank" rel="noopener noreferrer"><img src="/linkedin.png" alt="linkedin"/></a></li>
