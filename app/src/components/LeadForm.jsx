@@ -19,8 +19,10 @@ function LeadForm() {
         body: JSON.stringify(formData),
       })
 
+      const data = await res.json().catch(() => ({}))
       if (!res.ok) {
-        throw new Error(`Request failed: ${res.status}`)
+        const msg = data.error || `Request failed: ${res.status}`
+        throw new Error(msg)
       }
 
       setSubmitted(true)
@@ -31,7 +33,7 @@ function LeadForm() {
       alert('Message sent!')
     } catch (error) {
       console.error('Error sending message', error)
-      alert('There was a problem sending your message. Please try again.')
+      alert(error.message || 'There was a problem sending your message. Please try again.')
     }
   }
 
