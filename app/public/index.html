@@ -5,11 +5,15 @@
     <title>Contact Form</title>
   </head>
   <body>
-    <form name="contact" netlify hidden>
-      <input type="text" name="name" />
+    <form name="contact" method="POST" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+
+      <input type="text" name="name" required />
       <input type="tel" name="phone" />
-      <input type="email" name="email" />
+      <input type="email" name="email" required />
       <textarea name="message"></textarea>
+
+      <button type="submit">Send</button>
     </form>
   </body>
 </html>
