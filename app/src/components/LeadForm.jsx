@@ -2,29 +2,36 @@ import { useState } from 'react'
 
 function LeadForm() {
   const [submitted, setSubmitted] = useState(false)
-
-  const encode = (data) =>
-    Object.keys(data)
-      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&')
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const form = e.target
-    const formData = new FormData(form)
+    const formData = { name, phone, email, message }
 
     try {
-      await fetch('/', {
+      const res = await fetch('/.netlify/functions/send-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': form.getAttribute('name'), ...Object.fromEntries(formData) }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       })
+
+      if (!res.ok) {
+        throw new Error(`Request failed: ${res.status}`)
+      }
+
       setSubmitted(true)
-      form.reset()
+      setName('')
+      setPhone('')
+      setEmail('')
+      setMessage('')
+      alert('Message sent!')
     } catch (error) {
-      console.error('Form submission failed', error)
-      alert('Something went wrong sending your message. Please try again.')
+      console.error('Error sending message', error)
+      alert('There was a problem sending your message. Please try again.')
     }
   }
 
@@ -54,34 +61,54 @@ function LeadForm() {
               <p>I’ll reach out shortly using the details you provided.</p>
             </div>
           ) : (
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              className="lead-form"
-              onSubmit={handleSubmit}
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
+            <form className="lead-form" onSubmit={handleSubmit}>
               <label className="lead-form-field">
                 <span>Name</span>
-                <input type="text" name="name" placeholder="Your name" autoComplete="name" required />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  autoComplete="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </label>
 
               <label className="lead-form-field">
                 <span>Phone Number</span>
-                <input type="tel" name="phone" placeholder="(555) 123-4567" autoComplete="tel" />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="(555) 123-4567"
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </label>
 
               <label className="lead-form-field">
                 <span>Email</span>
-                <input type="email" name="email" placeholder="you@example.com" autoComplete="email" required />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autoComplete="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </label>
 
               <label className="lead-form-field lead-form-field-message">
                 <span>Short Message</span>
-                <textarea name="message" rows="5" placeholder="Tell me a little about what you need." />
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me a little about what you need."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
               </label>
 
               <button type="submit" className="lead-form-submit">
