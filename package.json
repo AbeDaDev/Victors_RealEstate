@@ -1,0 +1,9 @@
+{
+  "name": "victors-realestate-functions",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^8.0.2"
+  }
+}
