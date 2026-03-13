@@ -13,7 +13,7 @@ exports.handler = async (event) => {
 
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    to: 'agent@email.com',
+    to: 'r10nightwing@gmail.com',
     subject: 'New Real Estate Lead',
     text: `
 Name: ${name}
