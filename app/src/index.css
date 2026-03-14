@@ -246,6 +246,52 @@ body.light-mode .questions-header .subhead {
   color: rgba(0, 0, 0, 0.72);
 }
 
+body.light-mode .hero-intro,
+body.light-mode .testimonials-header,
+body.light-mode .contact-intro {
+  background: #fdfdfd;
+  color: #111111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .hero-intro h1,
+body.light-mode .hero-intro .subhead,
+body.light-mode .testimonials-header h2,
+body.light-mode .testimonials-header .subhead,
+body.light-mode .contact-intro p {
+  color: #111111;
+  text-shadow: none;
+}
+
+body.light-mode .hero-intro .eyebrow,
+body.light-mode .testimonials-header .eyebrow,
+body.light-mode .contact-intro .eyebrow {
+  color: #c84b4b;
+  text-shadow: none;
+}
+
+body.light-mode .lead-form-copy,
+body.light-mode .lead-form-highlights {
+  color: #111111;
+  text-shadow: none;
+}
+
+/* Keep contact title in the brand color for contrast in light mode */
+body.light-mode .contact-intro h2 {
+  color: #111111;
+  text-shadow: none;
+}
+
+body.light-mode .lead-form-eyebrow {
+  color: #c84b4b;
+  text-shadow: none;
+}
+
+body.light-mode .lead-form-card h2 {
+  color: #111111;
+  text-shadow: none;
+}
+
 body.light-mode .tab-button.is-active {
   background: linear-gradient(135deg, #111111 0%, #c84b4b 100%);
   color: #ffffff;
