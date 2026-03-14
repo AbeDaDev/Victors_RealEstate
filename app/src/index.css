@@ -751,28 +751,21 @@ body.light-mode .back-to-top:focus-visible {
 }
 
 .contact-actions {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
-  gap: 20px;
+  display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   margin: 54px auto 24px;
 }
 
 .contact-actions a {
   text-align: center;
   color: #ffffff;
-  width: 100%;
+  min-width: 260px;
 }
 
 @media (max-width: 768px) {
   .contact-actions {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .contact-actions a {
-    width: 100%;
+    margin: 36px auto 24px;
   }
 }
 
