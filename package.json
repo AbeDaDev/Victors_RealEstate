@@ -4,6 +4,7 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
     "nodemailer": "^8.0.2"
   }
 }

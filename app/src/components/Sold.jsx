@@ -25,6 +25,11 @@ function Sold() {
         <div className="sold-overlay">
           <h2>Recently Sold & Under Contract</h2>
           <p>Proven results for Southern California buyers and sellers.</p>
+          <ul className="sold-highlights">
+            <li>Pricing strategy grounded in current comps and absorption rates.</li>
+            <li>Professional photography, staging guidance, and aggressive launch marketing.</li>
+            <li>Offer vetting, negotiation, and escrow oversight to keep deals on track.</li>
+          </ul>
         </div>
       </div>
 

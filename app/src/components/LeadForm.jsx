@@ -41,6 +41,15 @@ function LeadForm() {
     <section className="lead-form-wrapper" id="contact" aria-labelledby="contact-form-heading">
       <div className="section-divider" aria-hidden="true" />
 
+      <div className="contact-intro">
+        <p className="eyebrow">Start the Conversation</p>
+        <h2>Tell me about your move or your property goals</h2>
+        <p>
+          Whether you’re buying, selling, or exploring options, I’ll respond within one business day with next steps,
+          a suggested timeline, and resources tailored to your situation.
+        </p>
+      </div>
+
       <div className="lead-form-section">
         <div className="lead-form-image-wrap">
           <img
@@ -56,6 +65,11 @@ function LeadForm() {
           <p className="lead-form-copy">
             Share your contact details and a short message. I'll follow up with you directly.
           </p>
+          <ul className="lead-form-highlights">
+            <li>Full-service representation for buyers and sellers across the Inland Empire and San Gabriel Valley.</li>
+            <li>Clear weekly updates, data-backed pricing strategies, and a vetted network of lenders, inspectors, and contractors.</li>
+            <li>Schedule a 15-minute consultation to outline your goals and next steps.</li>
+          </ul>
 
           {submitted ? (
             <div className="lead-form-thanks" role="status" aria-live="polite">

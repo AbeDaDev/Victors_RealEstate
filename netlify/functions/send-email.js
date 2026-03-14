@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer')
+const sgMail = require('@sendgrid/mail')
 
 const response = (statusCode, body) => ({
   statusCode,
@@ -11,8 +11,12 @@ exports.handler = async (event) => {
     return response(405, { error: 'Method Not Allowed' })
   }
 
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.error('Missing EMAIL_USER or EMAIL_PASS env vars')
+  const apiKey = process.env.SENDGRID_API_KEY
+  const toEmail = process.env.SENDGRID_TO || process.env.EMAIL_TO || process.env.EMAIL_USER
+  const fromEmail = process.env.SENDGRID_FROM || process.env.EMAIL_FROM || process.env.EMAIL_USER
+
+  if (!apiKey || !toEmail || !fromEmail) {
+    console.error('Missing SENDGRID_API_KEY or sender/recipient env vars')
     return response(500, { error: 'Email configuration missing' })
   }
 
@@ -29,30 +33,27 @@ exports.handler = async (event) => {
     return response(400, { error: 'Name and email are required' })
   }
 
-  try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    })
+  sgMail.setApiKey(apiKey)
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: 'r10nightwing@gmail.com',
-      replyTo: email,
-      subject: 'New Real Estate Lead',
-      text: `
+  const text = `
 Name: ${name}
 Phone: ${phone || 'N/A'}
 Email: ${email}
 
 Message:
 ${message || '(no message provided)'}
-`,
-    })
+`
 
+  const msg = {
+    to: toEmail,
+    from: fromEmail,
+    replyTo: email,
+    subject: 'New Real Estate Lead',
+    text,
+  }
+
+  try {
+    await sgMail.send(msg)
     return response(200, { message: 'Email sent successfully' })
   } catch (err) {
     console.error('Error sending email', err)

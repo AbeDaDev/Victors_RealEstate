@@ -19,6 +19,8 @@ function Header() {
           <img src="/logo.jpg" alt="logo" className="logo" />
         </div>
 
+        <div className="header-divider" aria-hidden="true" />
+
         <div className="links-container">
           <ul className="links">
             <li alt="Home">
@@ -48,6 +50,7 @@ function Header() {
           </ul>
         </div>
       </nav>
+
     </header>
   )
 }
