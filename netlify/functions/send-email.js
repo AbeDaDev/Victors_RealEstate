@@ -1,23 +1,25 @@
-const sgMail = require('@sendgrid/mail')
-
 const response = (statusCode, body) => ({
   statusCode,
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(body),
 })
 
+// FUB expects Basic Auth with the API key as the username and any password (blank is fine).
+const fubAuthHeader = () => {
+  if (!process.env.FUB_API_KEY) return null
+  const token = Buffer.from(`${process.env.FUB_API_KEY}:`).toString('base64')
+  return `Basic ${token}`
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return response(405, { error: 'Method Not Allowed' })
   }
 
-  const apiKey = process.env.SENDGRID_API_KEY
-  const toEmail = process.env.SENDGRID_TO || process.env.EMAIL_TO || process.env.EMAIL_USER
-  const fromEmail = process.env.SENDGRID_FROM || process.env.EMAIL_FROM || process.env.EMAIL_USER
-
-  if (!apiKey || !toEmail || !fromEmail) {
-    console.error('Missing SENDGRID_API_KEY or sender/recipient env vars')
-    return response(500, { error: 'Email configuration missing' })
+  const authHeader = fubAuthHeader()
+  if (!authHeader) {
+    console.error('Missing FUB_API_KEY env var')
+    return response(500, { error: 'Follow Up Boss API key missing' })
   }
 
   let payload
@@ -33,30 +35,36 @@ exports.handler = async (event) => {
     return response(400, { error: 'Name and email are required' })
   }
 
-  sgMail.setApiKey(apiKey)
-
-  const text = `
-Name: ${name}
-Phone: ${phone || 'N/A'}
-Email: ${email}
-
-Message:
-${message || '(no message provided)'}
-`
-
-  const msg = {
-    to: toEmail,
-    from: fromEmail,
-    replyTo: email,
-    subject: 'New Real Estate Lead',
-    text,
+  const eventBody = {
+    source: process.env.FUB_SOURCE || 'victors-realestate.com',
+    system: process.env.FUB_SYSTEM || 'victors-realestate-site',
+    type: 'General Inquiry',
+    message: message || '(no message provided)',
+    person: {
+      firstName: name,
+      emails: [{ value: email }],
+      phones: phone ? [{ value: phone }] : [],
+    },
   }
 
   try {
-    await sgMail.send(msg)
-    return response(200, { message: 'Email sent successfully' })
+    const res = await fetch('https://api.followupboss.com/v1/events', {
+      method: 'POST',
+      headers: {
+        Authorization: authHeader,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(eventBody),
+    })
+
+    if (!res.ok) {
+      const errText = await res.text().catch(() => '')
+      throw new Error(`FUB error ${res.status}: ${errText}`)
+    }
+
+    return response(200, { message: 'Lead sent to Follow Up Boss' })
   } catch (err) {
-    console.error('Error sending email', err)
-    return response(500, { error: 'Failed to send email' })
+    console.error('Error sending to Follow Up Boss', err)
+    return response(500, { error: 'Failed to send lead' })
   }
 }
