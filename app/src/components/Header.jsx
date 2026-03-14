@@ -23,9 +23,6 @@ function Header() {
 
         <div className="links-container">
           <ul className="links">
-            <li alt="Home">
-              <a href="#top">Home</a>
-            </li>
             <li alt="Reviews">
               <a href="#testimonials">Testimonials</a>
             </li>
