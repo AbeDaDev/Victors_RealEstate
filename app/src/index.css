@@ -838,6 +838,9 @@ body.light-mode .contact-actions a {
   gap: min(160px, 36vw);
   align-items: flex-start;
   animation: scroll-full 40s linear infinite;
+  width: max-content;
+  min-width: 100%;
+  flex-shrink: 0;
   will-change: transform;
   padding-inline: 20px;
 }
@@ -848,13 +851,17 @@ body.light-mode .contact-actions a {
   flex: 0 0 auto;
   display: block;
   border-radius: 12px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: width 0.25s ease, margin 0.25s ease, box-shadow 0.25s ease;
   transform-origin: center;
-  will-change: transform;
+  will-change: width;
+  margin-inline: 0;
 }
 
-.testimonial:hover {
-  transform: scale(1.9);
+.testimonial:hover,
+.testimonial:focus-visible,
+.testimonial:active {
+  width: min(360px, 86vw);
+  margin-inline: 8px;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
 }
 
@@ -1197,6 +1204,12 @@ footer.site-footer h4 + p {
     width: min(630px, 92vw);
   }
 
+  .testimonial:hover,
+  .testimonial:focus-visible,
+  .testimonial:active {
+    width: min(700px, 96vw);
+  }
+
   .contact-section {
     padding-bottom: 20px;
   }
@@ -1256,6 +1269,12 @@ footer.site-footer h4 + p {
 
   .testimonial {
     width: min(320px, 94vw);
+  }
+
+  .testimonial:hover,
+  .testimonial:focus-visible,
+  .testimonial:active {
+    width: min(360px, 96vw);
   }
 
   .map iframe,
