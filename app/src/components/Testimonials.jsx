@@ -1,3 +1,13 @@
+const testimonials = [
+  { src: '/testimonial1.PNG', alt: 'Testimonial 1' },
+  { src: '/testimonial2.PNG', alt: 'Testimonial 2' },
+  { src: '/testimonial3.PNG', alt: 'Testimonial 3' },
+  { src: '/testimonial4.PNG', alt: 'Testimonial 4' }
+]
+
+// Duplicate the set three times for a longer continuous marquee
+const marqueeImages = [...testimonials, ...testimonials, ...testimonials]
+
 function Testimonials() {
   return (
     <section className="testimonials" id="testimonials">
@@ -11,15 +21,9 @@ function Testimonials() {
 
       <div className="testimonials-viewport" aria-hidden="false">
         <div className="testimonials-track">
-          <img src="/testimonial1.PNG" alt="testimonial 1" className="testimonial" />
-          <img src="/testimonial2.PNG" alt="testimonial 2" className="testimonial" />
-          <img src="/testimonial1.PNG" alt="testimonial 1 duplicate" className="testimonial" />
-          <img src="/testimonial2.PNG" alt="testimonial 2 duplicate" className="testimonial" />
-          {/* duplicates for seamless looping */}
-          <img src="/testimonial1.PNG" alt="testimonial 1 duplicate" className="testimonial" />
-          <img src="/testimonial2.PNG" alt="testimonial 2 duplicate" className="testimonial" />
-          <img src="/testimonial1.PNG" alt="testimonial 1 duplicate" className="testimonial" />
-          <img src="/testimonial2.PNG" alt="testimonial 2 duplicate" className="testimonial" />
+          {marqueeImages.map((item, index) => (
+            <img key={`${item.src}-${index}`} src={item.src} alt={item.alt} className="testimonial" />
+          ))}
         </div>
       </div>
     </section>

@@ -837,7 +837,7 @@ body.light-mode .contact-actions a {
   display: flex;
   gap: min(160px, 36vw);
   align-items: flex-start;
-  animation: scroll-full 36s linear infinite;
+  animation: scroll-full 40s linear infinite;
   will-change: transform;
   padding-inline: 20px;
 }
@@ -848,15 +848,23 @@ body.light-mode .contact-actions a {
   flex: 0 0 auto;
   display: block;
   border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.testimonial:hover {
+  transform: scale(1.9);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
 }
 
 @keyframes scroll-full {
   0% {
-    transform: translateX(100vw);
+    transform: translateX(0);
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-33.3333%);
   }
 }
 
@@ -1181,7 +1189,7 @@ footer.site-footer h4 + p {
 
   .testimonials-track {
     gap: 20px;
-    animation-duration: 12s;
+    animation-duration: 22s;
     padding-inline: 12px;
   }
 
@@ -1243,7 +1251,7 @@ footer.site-footer h4 + p {
 
   .testimonials-track {
     gap: 16px;
-    animation-duration: 10s;
+    animation-duration: 16s;
   }
 
   .testimonial {

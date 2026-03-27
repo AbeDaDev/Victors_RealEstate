@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 
 const slides = [
+  { src: '/sold/sold.jpg', alt: 'Sold home banner' },
+  { src: '/sold/sold_main.PNG', alt: 'Main sold banner' },
   { src: '/sold/offeraccepted.jpg', alt: 'Offer accepted banner' },
-  { src: '/sold/offeraccepted2.jpg', alt: 'Second offer accepted banner' },
-  { src: '/sold/sold.jpg', alt: 'Sold home banner' }
+  { src: '/sold/offeraccepted2.jpg', alt: 'Second offer accepted banner' }
 ]
 
 function Sold() {
